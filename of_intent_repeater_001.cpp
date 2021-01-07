@@ -9,7 +9,7 @@ Can be run online at : https://www.onlinegdb.com/online_c++_compiler
 
 using namespace std;
 
-int i=0; int M=0;
+unsigned long i=0; unsigned int M=0;
 
 void signal_callback_handler(int signum) {
    cout << "i= " << i << endl;
