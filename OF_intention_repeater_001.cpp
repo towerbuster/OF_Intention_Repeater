@@ -17,7 +17,7 @@ unsigned long intention_repeats_counter=0; unsigned int M=0;
 std::chrono::_V2::system_clock::time_point t1;
 std::chrono::_V2::system_clock::time_point t2;
 
-// When CTRL+C, this is executed
+// When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
 void signal_callback_handler(int signum) {
     t2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = t2-t1;
@@ -34,6 +34,7 @@ void signal_callback_handler(int signum) {
 int main()
 {
     signal(SIGINT, signal_callback_handler);
+    signal(SIGTERM, signal_callback_handler);
 
     std::string intention, process_intention;
     
