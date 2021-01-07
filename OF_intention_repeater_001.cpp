@@ -24,7 +24,8 @@ void signal_callback_handler(int signum) {
     std::cout << "Total execution time " << diff.count() << " s\n";
     unsigned long average_intention_repeats_per_sec = (unsigned long)(intention_repeats_counter/diff.count());
     std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << "\n";
-    cout << "Number of intention repeats = " << intention_repeats_counter << endl;
+    std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec*60) << "\n";
+    cout << "Number of effective intention repeats = " << intention_repeats_counter << endl;
     // Terminate program
     exit(signum);
 }
