@@ -42,7 +42,7 @@ int main()
     std::string intention, process_intention;
     
     t1 = std::chrono::high_resolution_clock::now();
-    intention = "LOVE->FRANCE";
+    intention = "LOVE";
     while(true){
         process_intention = intention;
         i++;
