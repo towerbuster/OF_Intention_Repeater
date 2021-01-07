@@ -2,20 +2,38 @@
 Can be run online at : https://www.onlinegdb.com/online_c++_compiler
 *******************************************************************************/
 
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
 #include <iostream>
 #include <unistd.h>
 #include <cstdlib>
 #include <signal.h>
+#include <chrono>
 
 using namespace std;
 
 unsigned long i=0; unsigned int M=0;
 
+std::chrono::_V2::system_clock::time_point t1;
+std::chrono::_V2::system_clock::time_point t2;
+
+// When CTRL+C, this is executed
 void signal_callback_handler(int signum) {
-   cout << "i= " << i << endl;
-   // Terminate program
-   exit(signum);
+    t2 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = t2-t1;
+    std::cout << "Total execution time " << diff.count() << " s\n";
+    std::cout << "Number of intent repeats per second was " << std::to_string((int)(i/diff.count())) << "\n";
+    cout << "i= " << i << endl;
+    // Terminate program
+    exit(signum);
 }
+
 
 int main()
 {
@@ -23,7 +41,8 @@ int main()
 
     std::string intention, process_intention;
     
-    intention = "LOVE. AMOUR. GRATITUDE. ENERGIE BENEFIQUE.";
+    t1 = std::chrono::high_resolution_clock::now();
+    intention = "LOVE->FRANCE";
     while(true){
         process_intention = intention;
         i++;
