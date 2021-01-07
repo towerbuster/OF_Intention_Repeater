@@ -39,7 +39,7 @@ int main()
     while(true){
         process_intention = intention;
         i++;
-        if (i%1000000==0) { M++; cout << M << "M\r"; }
+        if (i%1000000==0) { M++; cout << M << "M\r"; } // std::flush can be added here but things are then slower (30% slower)
     }
     return 0;
 }
