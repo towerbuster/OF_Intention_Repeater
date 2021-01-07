@@ -35,6 +35,9 @@ int main()
 {
     signal(SIGINT, signal_callback_handler);
     signal(SIGTERM, signal_callback_handler);
+    signal(SIGKILL, signal_callback_handler);
+    signal(SIGSTOP, signal_callback_handler);
+    signal(SIGTSTP, signal_callback_handler);
 
     std::string intention, process_intention;
     
