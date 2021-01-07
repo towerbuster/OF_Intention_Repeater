@@ -8,6 +8,7 @@ Also : https://repl.it/languages/cpp
 #include <cstdlib>
 #include <signal.h>
 #include <chrono>
+#include <cpuid.h>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ void signal_callback_handler(int signum) {
     t2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = t2-t1;
     std::cout << "Total execution time " << diff.count() << " s\n";
-    std::cout << "Number of intent repeats per second was " << std::to_string((int)(i/diff.count())) << "\n";
+    std::cout << "Number of average intent repeats per second was " << std::to_string((int)(i/diff.count())) << "\n";
     cout << "i= " << i << endl;
     // Terminate program
     exit(signum);
@@ -39,7 +40,7 @@ int main()
     while(true){
         process_intention = intention;
         i++;
-        if (i%1000000==0) { M++; cout << M << "M\r"; } // std::flush can be added here but things are then slower (30% slower)
+        if (i%1000000==0) { M++; cout << M << "M\r"; }
     }
     return 0;
 }
