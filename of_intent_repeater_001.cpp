@@ -9,7 +9,7 @@ Can be run online at : https://www.onlinegdb.com/online_c++_compiler
 
 using namespace std;
 
-int i=0;
+int i=0; int M=0;
 
 void signal_callback_handler(int signum) {
    cout << "i= " << i << endl;
@@ -23,10 +23,11 @@ int main()
 
     std::string intention, process_intention;
     
-    intention = "love";
+    intention = "LOVE. AMOUR. GRATITUDE. ENERGIE BENEFIQUE.";
     while(true){
         process_intention = intention;
         i++;
+        if (i%1000000==0) { M++; cout << M << "M\r"; }
     }
     return 0;
 }
