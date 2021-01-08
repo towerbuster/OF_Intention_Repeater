@@ -43,7 +43,7 @@ int main()
     
     t1 = std::chrono::high_resolution_clock::now();
     intention = "LOVE";
-    while(true){
+    while(true) {
         process_intention = intention;
         intention_repeats_counter++;
         if (intention_repeats_counter%1000000==0) { M++; cout << M << "M\r"; }
