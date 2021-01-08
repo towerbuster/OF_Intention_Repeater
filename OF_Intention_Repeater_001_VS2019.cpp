@@ -16,18 +16,22 @@ using namespace std;
 
 unsigned long long intention_repeats_counter = 0; unsigned int M = 0;
 
-std::chrono::high_resolution_clock::time_point t1;
-std::chrono::high_resolution_clock::time_point t2;
+std::chrono::steady_clock::time_point t1;
+std::chrono::steady_clock::time_point t2;
 
 // When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
 void signal_callback_handler(int signum) {
-    t2 = std::chrono::high_resolution_clock::now();
+    t2 = std::chrono::steady_clock::now();
     std::chrono::duration<double> diff = t2 - t1;
-    std::cout << "Total execution time " << diff.count() << " s\n";
+    std::cout << "Total execution time is " << diff.count() << " seconds" << " = " << diff.count()/60 << " minutes" << " = " << diff.count()/60/60 << " hours" << endl;
     unsigned long long average_intention_repeats_per_sec = (unsigned long long)(intention_repeats_counter / diff.count());
-    std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << "\n";
-    std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec * 60) << "\n";
-    cout << "Number of effective intention repeats = " << intention_repeats_counter << endl;
+    std::cout << "Number of average intention repeats per microsecond was " << std::to_string(((float)average_intention_repeats_per_sec) / 1000 / 1000) << endl;
+    std::cout << "Number of average intention repeats per millisecond was " << std::to_string(average_intention_repeats_per_sec/1000) << endl;
+    std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << endl;
+    std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec * 60) << endl;
+    std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60))/1000000) << " millions\n";
+    std::cout << "Number of effective intention repeats = " << intention_repeats_counter << endl;
+    std::cout << "Number of effective intention repeats = " << ((float)intention_repeats_counter)/1000000 << " millions" << endl;
     // Terminate program
     exit(signum);
 }
@@ -41,7 +45,7 @@ int main()
     std::string intention, process_intention;
 
     cout << "Start sending. CTRL+C to stop." << endl;
-    t1 = std::chrono::high_resolution_clock::now();
+    t1 = std::chrono::steady_clock::now();
     intention = "LOVE";
     while (true) {
         process_intention = intention;
