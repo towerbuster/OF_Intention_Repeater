@@ -1,5 +1,4 @@
 /*************************************************************************************************************
-COMPILED EXE NOT AVAILABLE FOR NOW
 Can NOT be run online at : https://www.onlinegdb.com/online_c++_compiler (C++/C++14 seem to be faster than C++17)
 Also CAN NOT BE RUN AT : https://repl.it/languages/cpp
 THIS SOURCE CODE IS TO BE COMPILED WITH VISUAL STUDIO 2019 (C++ PROJECT)
@@ -50,6 +49,9 @@ void task1()
     }
 }
 
+
+unsigned long long maxcounter = 0;
+
 int main(int argc, char* argv[])
 {
     signal(SIGINT, signal_callback_handler);
@@ -58,25 +60,40 @@ int main(int argc, char* argv[])
     intention = "DIVINE LOVE + POSITIVE ORGONE + BLUE SKY";
 
     for (int i = 1; i < argc; ++i) {
-        if (std::string(argv[i]) == "--showcounter") {
-            show = true;
-        }
-        if (std::string(argv[i]) == "--intention") {
-            if (i + 1 < argc) { 
+        std::cout << argv[i] << endl;
+        std::string arg = argv[i];
+        if (arg == "--intention") {
+            std::cout << "intention detected" << endl;
+            if (i + 1 < argc) {
                 i++;
-                std::string input_intention = argv[i++]; 
-                //std::cout << "intention received = " << input_intention << endl;
-                intention = input_intention;
-                //return 1;
+                std::string intention_input_str = argv[i];
+                std::cout << "intention received = " << intention_input_str << endl;
+                intention = intention_input_str;
             }
             else {
-                std::cerr << "--intention option requires one argument." << std::endl;
-                return 1;
+                // missing argument for --intention
+            }
+        }
+        if (arg == "--showcounter") {
+            std::cout << "show counter detected" << endl;
+            show = true;
+        }
+        if (arg == "--maxcounter") {
+            std::cout << "maxcounter detected" << endl;
+            if (i + 1 < argc) {
+                i++;
+                std::string maxcounter_input_str = argv[i];
+                std::cout << "maxcounter received = " << maxcounter_input_str << endl;
+                maxcounter = stoll(maxcounter_input_str);
+            }
+            else {
+                // missing argument for --maxcounter
             }
         }
     }
 
     std::cout << "Intention : " << intention << endl;
+    std::cout << "Number of repeats (0 = infinite) : " << maxcounter << " millions" << endl;
     std::cout << "Start sending. CTRL+C to stop." << endl;
     t1 = std::chrono::steady_clock::now();
 
@@ -89,10 +106,12 @@ int main(int argc, char* argv[])
         //std::cout << M++ << "\r";
         M++;
 
-        /*if (M == 1000000000000) {
-            stop = true;
-            signal_callback_handler(SIGINT);
-        }*/
+        if (maxcounter > 0) {
+            if (M == maxcounter * 1000000) {
+                stop = true;
+                signal_callback_handler(SIGINT);
+            }
+        }
     }
     return 0;
 }
