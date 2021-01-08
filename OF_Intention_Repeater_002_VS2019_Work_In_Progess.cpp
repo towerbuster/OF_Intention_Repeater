@@ -1,4 +1,5 @@
 /*************************************************************************************************************
+COMPILED EXE NOT AVAILABLE FOR NOW
 Can NOT be run online at : https://www.onlinegdb.com/online_c++_compiler (C++/C++14 seem to be faster than C++17)
 Also CAN NOT BE RUN AT : https://repl.it/languages/cpp
 THIS SOURCE CODE IS TO BE COMPILED WITH VISUAL STUDIO 2019 (C++ PROJECT)
