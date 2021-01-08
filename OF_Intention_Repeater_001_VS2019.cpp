@@ -43,12 +43,14 @@ int main()
 
     std::string intention, process_intention;
 
+    cout << "Start sending. CTRL+C to stop." << endl;
     t1 = std::chrono::high_resolution_clock::now();
     intention = "LOVE";
     while (true) {
         process_intention = intention;
         intention_repeats_counter++;
-        if (intention_repeats_counter % 1000000 == 0) { M++; cout << M << "M\r"; }
+        //if (intention_repeats_counter % 1000000 == 0) { M++; cout << M << "M\r"; } // This line slows the processing
+        //cout << M++ << "\r";
     }
     return 0;
 }
