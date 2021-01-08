@@ -51,33 +51,36 @@ void task1()
 
 int main(int argc, char* argv[])
 {
+    signal(SIGINT, signal_callback_handler);
+    signal(SIGTERM, signal_callback_handler);
+    std::string intention, process_intention;
+    intention = "DIVINE LOVE + POSITIVE ORGONE + BLUE SKY";
+
     for (int i = 1; i < argc; ++i) {
         if (std::string(argv[i]) == "--showcounter") {
             show = true;
         }
-        /*if (std::string(argv[i]) == "--maxcount") {
-            if (i + 1 < argc) { // Make sure we aren't at the end of argv!
-                unsigned long long maxcount = stoll(argv[i++]); // Increment 'i' so we don't get the argument as the next argv[i].
-                std::cout << "maxcount received = " << std::to_string(maxcount) << endl;
+        if (std::string(argv[i]) == "--intention") {
+            if (i + 1 < argc) { 
+                i++;
+                std::string input_intention = argv[i++]; 
+                //std::cout << "intention received = " << input_intention << endl;
+                intention = input_intention;
+                //return 1;
+            }
+            else {
+                std::cerr << "--intention option requires one argument." << std::endl;
                 return 1;
             }
-            else { // Uh-oh, there was no argument to the destination option.
-                std::cerr << "--maxcount option requires one argument." << std::endl;
-                return 1;
-            }
-        }*/
+        }
     }
 
-    signal(SIGINT, signal_callback_handler);
-    signal(SIGTERM, signal_callback_handler);
-    std::string intention, process_intention;
-
+    std::cout << "Intention : " << intention << endl;
     std::cout << "Start sending. CTRL+C to stop." << endl;
     t1 = std::chrono::steady_clock::now();
 
     thread t1(task1);
 
-    intention = "DIVINE LOVE + POSITIVE ORGONE + BLUE SKY";
     while (true) {
         process_intention = intention;
         intention_repeats_counter++;
