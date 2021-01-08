@@ -13,7 +13,7 @@ Anyway, if you have orgonite around, then I think that it works in combination w
 
 NEW EXPERIMENTS (8th of January, 2020)
 
-the "OF Intention Repeater.exe" sends the word "LOVE" as an intention (in the Aether ?).
+the "OF Intention Repeater.exe" sends the word "LOVE" as an intention (in the Aether/Etheric Realm ?).
 
 I've run the "OF Intention Repeater.exe" file during approximatively 8 hours this last night. On this morning there were a huge blue hole over, with a diameter of approximatively 30 to 40 kilometers. There were orgonite devices around (some towerbusters and a Mini-PW from Orgonise-Africa that was powered by a software frequency generator with 963Hz + 528Hz). I still don't know if the program alone has induced the blue hole, or if it is the program + the orgonite devices around that have induced that.
 
