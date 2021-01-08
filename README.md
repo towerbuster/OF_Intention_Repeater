@@ -21,6 +21,8 @@ I've had a feedback from Thomas Sweet (that is the first one that has programmed
 
 I'm very happy that he gave me this feedback. I'll then go on this experiment that I think/feel is more oriented "Information Theory" such as the work done by "Jacques Benveniste" around "The Memory Of Water" (https://books.google.fr/books/about/Ma_v%C3%A9rit%C3%A9_sur_la_M%C3%A9moire_de_l_eau.html?id=oKyz0ggBFpoC&printsec=frontcover&source=kp_read_button&redir_esc=y#v=onepage&q&f=false).
 
+If you need to analyze the .exe file https://opentip.kaspersky.com/
+
 https://orgonite.actifforum.com
 
 https://orgonite-gifter.blogspot.com
