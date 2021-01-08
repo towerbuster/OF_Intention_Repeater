@@ -19,7 +19,7 @@ I've run the "OF Intention Repeater.exe" file during approximatively 8 hours thi
 
 I've had a feedback from Thomas Sweet (that is the first one that has programmed a software Intention Repeater at https://github.com/tsweet77) and he wrote me that : "I ran your program and can definitely feel it."
 
-I'm very happy that he gave me this feedback. I'll then go on this experiment that I think is more oriented "Information Theory" such as the work done by "Jacques Benveniste" around "The Memory Of Water".
+I'm very happy that he gave me this feedback. I'll then go on this experiment that I think/feel is more oriented "Information Theory" such as the work done by "Jacques Benveniste" around "The Memory Of Water".
 
 https://orgonite.actifforum.com
 
