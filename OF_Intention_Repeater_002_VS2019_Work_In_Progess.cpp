@@ -59,6 +59,7 @@ int main(int argc, char* argv[])
     std::string intention, process_intention;
     intention = "DIVINE LOVE + POSITIVE ORGONE + BLUE SKY";
 
+    std::cout << endl << "*** START ARGUMENTS PARSING ***" << endl;
     for (int i = 1; i < argc; ++i) {
         std::cout << argv[i] << endl;
         std::string arg = argv[i];
@@ -91,6 +92,8 @@ int main(int argc, char* argv[])
             }
         }
     }
+    std::cout << endl << "*** PROCESSING ***" << endl;
+
 
     std::cout << "Intention : " << intention << endl;
     std::cout << "Number of repeats (0 = infinite) : " << maxcounter << " millions" << endl;
