@@ -38,8 +38,8 @@ void signal_callback_handler(int signum) {
     std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << endl;
     std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec * 60) << endl;
     std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60)) / 1000000) << " millions" << endl;
-    std::cout << "Number of effective intention repeats = " << intention_repeats_counter * multiplication_factor << endl;
-    std::cout << "Number of effective intention repeats = " << (((float)intention_repeats_counter) / 1000000) * multiplication_factor << " millions" << endl;
+    std::cout << "Number of effective intention repeats = " << std::to_string(intention_repeats_counter * multiplication_factor) << endl;
+    std::cout << "Number of effective intention repeats = " << std::to_string((((float)intention_repeats_counter) / 1000000) * multiplication_factor) << " millions" << endl;
     // Terminate program
     exit(signum);
 }
@@ -63,16 +63,16 @@ int main(int argc, char* argv[])
     std::string intention, process_intention;
     intention = "DIVINE LOVE";
 
-    std::cout << endl << "*** START ARGUMENTS PARSING ***" << endl;
+    //std::cout << endl << "*** START ARGUMENTS PARSING ***" << endl;
     for (int i = 1; i < argc; ++i) {
         std::cout << argv[i] << endl;
         std::string arg = argv[i];
         if (arg == "--intention") {
-            std::cout << "intention detected" << endl;
+            //std::cout << "intention detected" << endl;
             if (i + 1 < argc) {
                 i++;
                 std::string intention_input_str = argv[i];
-                std::cout << "intention received = " << intention_input_str << endl;
+                //std::cout << "intention received = " << intention_input_str << endl;
                 intention = intention_input_str;
             }
             else {
@@ -80,15 +80,15 @@ int main(int argc, char* argv[])
             }
         }
         if (arg == "--showcounter") {
-            std::cout << "show counter detected" << endl;
+            //std::cout << "show counter detected" << endl;
             show = true;
         }
         if (arg == "--maxcounter") {
-            std::cout << "maxcounter detected" << endl;
+            //std::cout << "maxcounter detected" << endl;
             if (i + 1 < argc) {
                 i++;
                 std::string maxcounter_input_str = argv[i];
-                std::cout << "maxcounter received = " << maxcounter_input_str << endl;
+                //std::cout << "maxcounter received = " << maxcounter_input_str << endl;
                 maxcounter = stoll(maxcounter_input_str);
             }
             else {
@@ -96,11 +96,11 @@ int main(int argc, char* argv[])
             }
         }
         if (arg == "--multiplicationfactor") {
-            std::cout << "multiplicationfactor detected" << endl;
+            //std::cout << "multiplicationfactor detected" << endl;
             if (i + 1 < argc) {
                 i++;
                 std::string mf_input_str = argv[i];
-                std::cout << "multiplication factor received = " << mf_input_str << endl;
+                //std::cout << "multiplication factor received = " << mf_input_str << endl;
                 multiplication_factor = stoi(mf_input_str);
             }
             else {
@@ -114,17 +114,6 @@ int main(int argc, char* argv[])
             std::cout << "--maxcounter X : Set the maximum number of millions of times the intention is sent, eg 1 for 1 million. Not specifying this parameter (or 0) is equivalent to infinite." << endl;
         }
     }
-
-
-    // EXPERIMENTAL BEGIN
-    /*unsigned long long i = 0;
-    unsigned long long max_iter = 2;//(1024) / intention.length();
-    while (i < max_iter) {
-        intention += intention;
-        i++;
-    }
-    std::cout << intention.length() << endl;*/
-    // EXPERIMENTAL END
 
 
     std::cout << endl << "*** PROCESSING ***" << endl;
