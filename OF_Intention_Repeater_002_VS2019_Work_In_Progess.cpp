@@ -27,15 +27,15 @@ void signal_callback_handler(int signum) {
     stop = true;
     t2 = std::chrono::steady_clock::now();
     std::chrono::duration<double> diff = t2 - t1;
-    std::cout << "Total execution time is " << diff.count() << " seconds" << " = " << diff.count()/60 << " minutes" << " = " << diff.count()/60/60 << " hours" << endl;
+    std::cout << "Total execution time is " << diff.count() << " seconds" << " = " << diff.count() / 60 << " minutes" << " = " << diff.count() / 60 / 60 << " hours" << endl;
     unsigned long long average_intention_repeats_per_sec = (unsigned long long)(intention_repeats_counter / diff.count());
     std::cout << "Number of average intention repeats per microsecond was " << std::to_string(((float)average_intention_repeats_per_sec) / 1000 / 1000) << endl;
-    std::cout << "Number of average intention repeats per millisecond was " << std::to_string(average_intention_repeats_per_sec/1000) << endl;
+    std::cout << "Number of average intention repeats per millisecond was " << std::to_string(average_intention_repeats_per_sec / 1000) << endl;
     std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << endl;
     std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec * 60) << endl;
-    std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60))/1000000) << " millions" << endl;
+    std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60)) / 1000000) << " millions" << endl;
     std::cout << "Number of effective intention repeats = " << intention_repeats_counter << endl;
-    std::cout << "Number of effective intention repeats = " << ((float)intention_repeats_counter)/1000000 << " millions" << endl;
+    std::cout << "Number of effective intention repeats = " << ((float)intention_repeats_counter) / 1000000 << " millions" << endl;
     // Terminate program
     exit(signum);
 }
@@ -43,9 +43,9 @@ void signal_callback_handler(int signum) {
 bool show = false;
 void task1()
 {
-    while (stop == false && show == true) 
+    while (stop == false && show == true)
     {
-        std::cout << M/1000000 << "M\r";
+        std::cout << M / 1000000 << "M\r";
     }
 }
 
@@ -94,13 +94,12 @@ int main(int argc, char* argv[])
     }
     std::cout << endl << "*** PROCESSING ***" << endl;
 
+    thread thread1(task1);
 
     std::cout << "Intention : " << intention << endl;
     std::cout << "Number of repeats (0 = infinite) : " << maxcounter << " millions" << endl;
     std::cout << "Start sending. CTRL+C to stop." << endl;
     t1 = std::chrono::steady_clock::now();
-
-    thread t1(task1);
 
     while (true) {
         process_intention = intention;
@@ -118,5 +117,3 @@ int main(int argc, char* argv[])
     }
     return 0;
 }
-
-
