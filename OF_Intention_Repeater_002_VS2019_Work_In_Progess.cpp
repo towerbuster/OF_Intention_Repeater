@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
     signal(SIGINT, signal_callback_handler);
     signal(SIGTERM, signal_callback_handler);
     std::string intention, process_intention;
-    intention = "DIVINE LOVE + POSITIVE ORGONE + BLUE SKY";
+    intention = "DIVINE LOVE";
 
     std::cout << endl << "*** START ARGUMENTS PARSING ***" << endl;
     for (int i = 1; i < argc; ++i) {
