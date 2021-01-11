@@ -23,6 +23,14 @@ I'm very happy that he gave me this feedback. I'll then go on this experiment th
 
 If you need to analyze the .exe file https://opentip.kaspersky.com/
 
+Possible options :
+
+--intention "THE INTENT" : Set a specific intent
+--maxcounter 500 : Set the maximum of repeats (in millions, multiplied by multiplication factor)
+--multiplicationfactor : Set the multiplication factor (default is actually 128, better is 256 on my HP EliteBook laptop)
+
+
+
 https://orgonite.actifforum.com
 
 https://orgonite-gifter.blogspot.com
