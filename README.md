@@ -27,11 +27,11 @@ Possible options :
 
 --help : Show help.
 
---intention "THE INTENT" : Set a specific intent
+--intention "THE INTENT" : Set a specific intent. If not specified then default intention is "DIVINE LOVE".
 
---maxcounter 500 : Set the maximum of repeats (in millions, multiplied by multiplication factor)
+--maxcounter 500 : Set the maximum of repeats (in millions, multiplied by multiplication factor).
 
---multiplicationfactor : Set the multiplication factor (default is actually 128, better is 256 on my HP EliteBook laptop)
+--multiplicationfactor : Set the multiplication factor (default is actually 128, better is 256 on my HP EliteBook laptop).
 
 --showcounter : Show live counter (in millions, eg. 1M = 1 million). To be multiplied with the multiplication factor to get real repeats counter.
 
