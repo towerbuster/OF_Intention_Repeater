@@ -91,6 +91,12 @@ int main(int argc, char* argv[])
                 // missing argument for --maxcounter
             }
         }
+        if (arg == "--h" || arg == "-h" || arg == "--help" || arg == "-help") {
+            std::cout << "Options :" << endl << "-h or --h or --help or -help : Show this help." << endl;
+            std::cout << "--intention \"THE INTENTION TO SEND\" : Set intention to send. " << endl;
+            std::cout << "--showcounter : Show live counter (divided by 1 million), eg. 1M = 1 million." << endl;
+            std::cout << "--maxcounter X : Set the maximum number of millions of times the intention is sent, eg 1 for 1 million. Not specifying this parameter (or 0) is equivalent to infinite." << endl;
+        }
     }
     std::cout << endl << "*** PROCESSING ***" << endl;
 
