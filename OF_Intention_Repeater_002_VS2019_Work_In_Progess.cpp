@@ -23,7 +23,7 @@ std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
 
 
-int multiplication_factor = 2;
+int multiplication_factor = 16;
 
 
 // When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
@@ -32,7 +32,7 @@ void signal_callback_handler(int signum) {
     t2 = std::chrono::steady_clock::now();
     std::chrono::duration<double> diff = t2 - t1;
     std::cout << "Total execution time is " << diff.count() << " seconds" << " = " << diff.count() / 60 << " minutes" << " = " << diff.count() / 60 / 60 << " hours" << endl;
-    unsigned long long average_intention_repeats_per_sec = (unsigned long long)((intention_repeats_counter*multiplication_factor) / diff.count());
+    unsigned long long average_intention_repeats_per_sec = (unsigned long long)((intention_repeats_counter * multiplication_factor) / diff.count());
     std::cout << "Number of average intention repeats per microsecond was " << std::to_string(((float)average_intention_repeats_per_sec) / 1000 / 1000) << endl;
     std::cout << "Number of average intention repeats per millisecond was " << std::to_string(average_intention_repeats_per_sec / 1000) << endl;
     std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << endl;
@@ -117,6 +117,8 @@ int main(int argc, char* argv[])
 
     std::cout << endl << "*** PROCESSING ***" << endl;
 
+    std::cout << "Multiplication factor = " << multiplication_factor << endl;
+
     thread thread1(task1);
 
     std::cout << "Intention : " << intention << endl;
@@ -130,7 +132,7 @@ int main(int argc, char* argv[])
     t1 = std::chrono::steady_clock::now();
 
     std::string intention_copy = intention;
-    for (int i=0;i<multiplication_factor-1;i++)
+    for (int i = 0; i < multiplication_factor - 1; i++)
         intention += intention_copy;
 
     while (true) {
