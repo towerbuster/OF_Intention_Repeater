@@ -97,15 +97,19 @@ int main(int argc, char* argv[])
     thread thread1(task1);
 
     std::cout << "Intention : " << intention << endl;
-    std::cout << "Number of repeats (0 = infinite) : " << maxcounter << " millions" << endl;
+    
+    if (maxcounter == 0)
+        std::cout << "Number of repeats : infinite" << endl;
+    else
+        std::cout << "Number of repeats : " << maxcounter << " millions" << endl;
+
     std::cout << "Start sending. CTRL+C to stop." << endl;
     t1 = std::chrono::steady_clock::now();
 
     while (true) {
         process_intention = intention;
         intention_repeats_counter++;
-        //if (intention_repeats_counter % 1000000 == 0) { M++; cout << M << "M\r"; } // This line slows the processing
-        //std::cout << M++ << "\r";
+
         M++;
 
         if (maxcounter > 0) {
