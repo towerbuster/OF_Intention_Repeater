@@ -22,7 +22,8 @@ bool stop = false;
 std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
 
-int multiplication_factor = 1024;
+
+int multiplication_factor = 2;
 
 
 // When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
@@ -31,18 +32,14 @@ void signal_callback_handler(int signum) {
     t2 = std::chrono::steady_clock::now();
     std::chrono::duration<double> diff = t2 - t1;
     std::cout << "Total execution time is " << diff.count() << " seconds" << " = " << diff.count() / 60 << " minutes" << " = " << diff.count() / 60 / 60 << " hours" << endl;
-    unsigned long long average_intention_repeats_per_sec = (unsigned long long)(intention_repeats_counter / diff.count());
+    unsigned long long average_intention_repeats_per_sec = (unsigned long long)((intention_repeats_counter*multiplication_factor) / diff.count());
     std::cout << "Number of average intention repeats per microsecond was " << std::to_string(((float)average_intention_repeats_per_sec) / 1000 / 1000) << endl;
     std::cout << "Number of average intention repeats per millisecond was " << std::to_string(average_intention_repeats_per_sec / 1000) << endl;
-
     std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << endl;
-    std::cout << "(MULTIPLICATION FACTOR) Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec*multiplication_factor) << endl;
-
-
     std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec * 60) << endl;
     std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60)) / 1000000) << " millions" << endl;
-    std::cout << "Number of effective intention repeats = " << intention_repeats_counter << endl;
-    std::cout << "Number of effective intention repeats = " << ((float)intention_repeats_counter) / 1000000 << " millions" << endl;
+    std::cout << "Number of effective intention repeats = " << intention_repeats_counter * multiplication_factor << endl;
+    std::cout << "Number of effective intention repeats = " << (((float)intention_repeats_counter) / 1000000) * multiplication_factor << " millions" << endl;
     // Terminate program
     exit(signum);
 }
