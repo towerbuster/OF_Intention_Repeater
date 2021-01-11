@@ -23,7 +23,7 @@ std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
 
 
-int multiplication_factor = 16;
+int multiplication_factor = 128;
 
 
 // When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
@@ -93,6 +93,18 @@ int main(int argc, char* argv[])
             }
             else {
                 // missing argument for --maxcounter
+            }
+        }
+        if (arg == "--multiplicationfactor") {
+            std::cout << "multiplicationfactor detected" << endl;
+            if (i + 1 < argc) {
+                i++;
+                std::string mf_input_str = argv[i];
+                std::cout << "multiplication factor received = " << mf_input_str << endl;
+                multiplication_factor = stoi(mf_input_str);
+            }
+            else {
+                // missing argument for --multiplicationfactor
             }
         }
         if (arg == "--h" || arg == "-h" || arg == "--help" || arg == "-help") {
