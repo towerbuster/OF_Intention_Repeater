@@ -22,6 +22,9 @@ bool stop = false;
 std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
 
+int multiplication_factor = 1024;
+
+
 // When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
 void signal_callback_handler(int signum) {
     stop = true;
@@ -31,7 +34,11 @@ void signal_callback_handler(int signum) {
     unsigned long long average_intention_repeats_per_sec = (unsigned long long)(intention_repeats_counter / diff.count());
     std::cout << "Number of average intention repeats per microsecond was " << std::to_string(((float)average_intention_repeats_per_sec) / 1000 / 1000) << endl;
     std::cout << "Number of average intention repeats per millisecond was " << std::to_string(average_intention_repeats_per_sec / 1000) << endl;
+
     std::cout << "Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec) << endl;
+    std::cout << "(MULTIPLICATION FACTOR) Number of average intention repeats per second was " << std::to_string(average_intention_repeats_per_sec*multiplication_factor) << endl;
+
+
     std::cout << "Number of average intention repeats per minute was " << std::to_string(average_intention_repeats_per_sec * 60) << endl;
     std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60)) / 1000000) << " millions" << endl;
     std::cout << "Number of effective intention repeats = " << intention_repeats_counter << endl;
@@ -98,12 +105,25 @@ int main(int argc, char* argv[])
             std::cout << "--maxcounter X : Set the maximum number of millions of times the intention is sent, eg 1 for 1 million. Not specifying this parameter (or 0) is equivalent to infinite." << endl;
         }
     }
+
+
+    // EXPERIMENTAL BEGIN
+    /*unsigned long long i = 0;
+    unsigned long long max_iter = 2;//(1024) / intention.length();
+    while (i < max_iter) {
+        intention += intention;
+        i++;
+    }
+    std::cout << intention.length() << endl;*/
+    // EXPERIMENTAL END
+
+
     std::cout << endl << "*** PROCESSING ***" << endl;
 
     thread thread1(task1);
 
     std::cout << "Intention : " << intention << endl;
-    
+
     if (maxcounter == 0)
         std::cout << "Number of repeats : infinite" << endl;
     else
@@ -111,6 +131,10 @@ int main(int argc, char* argv[])
 
     std::cout << "Start sending. CTRL+C to stop." << endl;
     t1 = std::chrono::steady_clock::now();
+
+    std::string intention_copy = intention;
+    for (int i=0;i<multiplication_factor-1;i++)
+        intention += intention_copy;
 
     while (true) {
         process_intention = intention;
