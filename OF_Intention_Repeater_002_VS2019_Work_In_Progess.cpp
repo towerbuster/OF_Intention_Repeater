@@ -12,6 +12,7 @@ THIS SOURCE CODE IS TO BE COMPILED WITH VISUAL STUDIO 2019 (C++ PROJECT)
 #include <string>
 #include <thread>
 //#include <cpuid.h>
+#include <windows.h>   // WinApi header
 
 using namespace std;
 
@@ -110,16 +111,22 @@ int main(int argc, char* argv[])
         }
         if (arg == "--h" || arg == "-h" || arg == "--help" || arg == "-help") {
             std::cout << "Options :" << endl << "-h or --h or --help or -help : Show this help." << endl;
-            std::cout << "-h or --h or -help or --help : Show this help." << endl;
             std::cout << "--intention \"THE INTENTION TO SEND\" : Set intention to send. " << endl;
             std::cout << "--showcounter : Show live counter (divided by 1 million), eg. 1M = 1 million." << endl;
             std::cout << "--maxcounter X : Set the maximum number of millions of times the intention is sent, eg 1 for 1 million. Not specifying this parameter (or 0) is equivalent to infinite." << endl;
             std::cout << "--multiplicationfactor Y : Set the multiplication factor (default value is 128)." << endl;
+            return 0;
         }
     }
 
 
     std::cout << endl << "*** PROCESSING ***" << endl;
+
+    MEMORYSTATUSEX memStat;
+    memStat.dwLength = sizeof(memStat);
+    GlobalMemoryStatusEx(&memStat);
+    std::cout << "Total physical memory = " << memStat.ullTotalPhys/1024/1024/1024 << "G = " << memStat.ullTotalPhys/1024/1024 << "M" << endl;
+    std::cout << "Total physical memory available = " << memStat.ullAvailPhys / 1024 / 1024 / 1024 << "G = " << memStat.ullAvailPhys/1024/1024 << "M" << endl;
 
     std::cout << "Multiplication factor = " << multiplication_factor << endl;
 
@@ -138,7 +145,7 @@ int main(int argc, char* argv[])
     std::string intention_copy = intention;
     for (int i = 0; i < multiplication_factor - 1; i++)
         intention += intention_copy;
-
+    
     while (true) {
         process_intention = intention;
         intention_repeats_counter++;
@@ -151,6 +158,7 @@ int main(int argc, char* argv[])
                 signal_callback_handler(SIGINT);
             }
         }
+
     }
     return 0;
 }
