@@ -23,7 +23,6 @@ std::chrono::_V2::steady_clock::time_point t2;
 
 int multiplication_factor = 128;
 
-
 // When CTRL+C (SIGINT), this is executed, also when program is stopped (SIGTERM, eg. useful on repl.it but not on onlinegdb)
 void signal_callback_handler(int signum) {
     stop = true;
