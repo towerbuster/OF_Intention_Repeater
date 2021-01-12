@@ -49,7 +49,7 @@ void task1()
 {
     while (stop == false && show == true)
     {
-        std::cout << M / 1000000 << "M\r";
+        std::cout << (M / 1000000) * multiplication_factor << "M\r";
     }
 }
 
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
 
     //std::cout << endl << "*** START ARGUMENTS PARSING ***" << endl;
     for (int i = 1; i < argc; ++i) {
-        std::cout << argv[i] << endl;
+        //std::cout << argv[i] << endl;
         std::string arg = argv[i];
         if (arg == "--intention") {
             //std::cout << "intention detected" << endl;
@@ -109,9 +109,11 @@ int main(int argc, char* argv[])
         }
         if (arg == "--h" || arg == "-h" || arg == "--help" || arg == "-help") {
             std::cout << "Options :" << endl << "-h or --h or --help or -help : Show this help." << endl;
+            std::cout << "-h or --h or -help or --help : Show this help." << endl;
             std::cout << "--intention \"THE INTENTION TO SEND\" : Set intention to send. " << endl;
             std::cout << "--showcounter : Show live counter (divided by 1 million), eg. 1M = 1 million." << endl;
             std::cout << "--maxcounter X : Set the maximum number of millions of times the intention is sent, eg 1 for 1 million. Not specifying this parameter (or 0) is equivalent to infinite." << endl;
+            std::cout << "--multiplicationfactor Y : Set the multiplication factor (default value is 128)." << endl;
         }
     }
 
