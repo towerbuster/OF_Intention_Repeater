@@ -40,6 +40,7 @@ void signal_callback_handler(int signum) {
     std::cout << "Number of average intention repeats per minute was " << std::to_string(((float)(average_intention_repeats_per_sec * 60)) / 1000000) << " millions" << endl;
     std::cout << "Number of effective intention repeats = " << std::to_string(intention_repeats_counter * multiplication_factor) << endl;
     std::cout << "Number of effective intention repeats = " << std::to_string((((float)intention_repeats_counter) / 1000000) * multiplication_factor) << " millions" << endl;
+    std::cout << "Number of effective intention repeats = " << std::to_string((((float)intention_repeats_counter) / 1000000 / 1000) * multiplication_factor) << " billions" << endl;
     // Terminate program
     exit(signum);
 }
