@@ -33,7 +33,7 @@ Possible options :
 
 --multiplicationfactor : Set the multiplication factor (default is actually 128, better is 256 on my HP EliteBook laptop).
 
---showcounter : Show live counter (in millions, eg. 1M = 1 million). To be multiplied with the multiplication factor to get real repeats counter.
+--showcounter : Show live counter (in millions, eg. 1M = 1 million).
 
 
 
