@@ -39,7 +39,7 @@ Possible options :
 IMPORTANT : Don't set the multiplication factor too high because it can cause your computer to hang (because of CPU saturation). I suggest that if the default value works fine then you increase it to 256, then 512, then 1024 etc... On a high performance computer I use, the value of 1200 is the best one. I'll try to add a function to find the best value for your hardware. It also depends on the length of the intention. If the intention is long then you should decrease the multiplication factor.
 
 
-About the Android application (OF_Intention_Repeater.apk) :
+# About the Android application (OF_Intention_Repeater.apk) :
 
 This is an alpha release version. The multiplication factor is 128. There are 3 buttons : "Start processing" that starts the intention repeats, "Set intention" that sets your intention (before pressing "Start processing" or even afeter "Start processing" has been pressed), "Get intention" to see the current intention set. The only way to stop the processing is by pressing the "square" or "double square" Android button and pressing "Close all" or swiping the application to the right or to the left. When running for a long time you might get a system message saying that the application is slowing down the CPU...
 
