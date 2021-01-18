@@ -41,7 +41,7 @@ IMPORTANT : Don't set the multiplication factor too high because it can cause yo
 
 # About the Android application (OF_Intention_Repeater.apk) :
 
-This is an alpha release version. The multiplication factor is 128. There are 3 buttons : "Start processing" that starts the intention repeats, "Set intention" that sets your intention (before pressing "Start processing" or even afeter "Start processing" has been pressed), "Get intention" to see the current intention set. The only way to stop the processing is by pressing the "square" or "double square" Android button and pressing "Close all" or swiping the application to the right or to the left. When running for a long time you might get a system message saying that the application is slowing down the CPU...
+This is an alpha release version. The multiplication factor is 128. There are 3 buttons : "Start processing" that starts the intention repeats, "Set intention" that sets your intention (before pressing "Start processing" or even after "Start processing" has been pressed), "Get intention" to see the current intention set. 
 
 Installation of this APK needs you to authorize "unknown sources".
 
