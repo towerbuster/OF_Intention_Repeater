@@ -41,10 +41,20 @@ IMPORTANT : Don't set the multiplication factor too high because it can cause yo
 
 # About the Android application (OF_Intention_Repeater.apk) :
 
-This is an alpha release version. The multiplication factor is 128. There are 3 buttons : "Start processing" that starts the intention repeats, "Set intention" that sets your intention (before pressing "Start processing" or even after "Start processing" has been pressed).
+This is an alpha release version. The multiplication factor is 2048. There 2 buttons : "Start processing" that starts the intention repeats, "Set intention" that sets your intention (before pressing "Start processing" or even after "Start processing" has been pressed).
 
 Installation of this APK needs you to authorize "unknown sources".
 
+The latest version starts a background processing. The Android operating system can decide to force stop the application, but the background processing should restart automatically in this case. In this case, the timer is reseted to 00:00:00 so don't worry if that happens.
+
+This version creates a file named "debug.txt" in the following folder : \Android\data\com.tb.of_ir\files
+
+This file contains only debug information that you can send me if you need troubleshooting the app. This file connot exceed 1 Megabyte (in case it reaches this length then it is deleted and created again).
+
+On a Samsung A3 Android phone, the amount of repeats per second is 406 millions per second.
+
+
+Other websites : 
 
 https://orgonite.actifforum.com
 
